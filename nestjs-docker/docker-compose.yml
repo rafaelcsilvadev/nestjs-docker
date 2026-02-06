@@ -1,0 +1,31 @@
+services:
+  # Não precisa. Isso é somente para criar o banco no docker de example
+  postgres:
+    image: postgres:15-alpine
+    container_name: nest_postgres_db
+    environment:
+      POSTGRES_USER: rafael
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: register-user
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: nestjs_api
+    ports:
+      - "3000:3000"
+    environment:
+      # Essas variáveis devem bater com o que está no seu AppModule
+      DB_HOST: postgres 
+      DB_PORT: 5432
+      DB_USERNAME: rafael
+      DB_PASSWORD: 1234
+      DB_DATABASE: register-user
+    depends_on:
+      - postgres # Garante que o banco suba antes do app
+
+volumes:
+  pgdata:
