@@ -1,0 +1,31 @@
+# Dependências
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build e saída
+dist
+artifacts
+coverage
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Configurações de ambiente e segredos
+.env
+.env.*
+.secrets
+.git
+.gitignore
+
+# Documentação e IDEs
+README.md
+LICENSE
+.vscode
+.idea
+.prettierrc
+.eslintrc.js

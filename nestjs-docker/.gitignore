@@ -15,8 +15,6 @@ build/
 .env.*.local
 !.env.example
 
-# --- Docker ---
-.dockerignore
 # Se você não quiser subir os dados do volume do banco
 pgdata/
 
